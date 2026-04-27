@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Opus 4.6 Setup (PC)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+            color: #e2e8f0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            color: #60a5fa;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 50px;
+        }
+        .card {
+            background: #1e2937;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid #334155;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .command {
+            background: #0f172a;
+            padding: 18px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 1.1rem;
+            color: #67e8f9;
+            margin-bottom: 14px;
+            overflow-x: auto;
+            border-left: 4px solid #3b82f6;
+        }
+        .copy-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            float: right;
+        }
+        .copy-btn:hover {
+            background: #2563eb;
+        }
+        .copy-btn.copied {
+            background: #22c55e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Claude Opus 4.6 Setup (PC)</h1>
+        <p class="subtitle">اپنے Windows PC پر Claude Code سیٹ اپ کرنے کا مکمل گائیڈ</p>
+
+        <div class="card">
+            <div class="command">npm install -g @anthropic-ai/claude-code</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+        <div class="card">
+            <div class="command">setx ANTHROPIC_BASE_URL "https://agentrouter.org/"</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+        <div class="card">
+            <div class="command">setx ANTHROPIC_AUTH_TOKEN "sk-KUByf000000000000000000000"</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+        <div class="card">
+            <div class="command">setx ANTHROPIC_MODEL "claude-opus-4-6"</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+        <div class="card">
+            <div class="command">setx CLAUDE_CODE_USE_AUTH_TOKEN "true"</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+        <div class="card">
+            <div class="command">claude</div>
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(btn) {
+            const text = btn.previousElementSibling.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.textContent;
+                btn.textContent = "Copied ✓";
+                setTimeout(() => btn.textContent = original, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
